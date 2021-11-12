@@ -27,6 +27,7 @@ class UserService {
 
     fun updateUser(idUser: String, user: User) {
         val userAux = userRepository.find(idUser) ?: throw BusinessException("This user doesn't exist")
+        user.city=userAux.city
         userRepository.update(user)
     }
 }
