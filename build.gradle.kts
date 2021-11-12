@@ -10,7 +10,7 @@ plugins {
 
 group = "edu.eam.ingesoft.OnlineStore2"
 version = "0.0.1-SNAPSHOT"
-java.sourceCompatibility = JavaVersion.VERSION_11
+java.sourceCompatibility = JavaVersion.VERSION_15
 
 repositories {
 	mavenCentral()
@@ -30,6 +30,13 @@ tasks.withType<KotlinCompile> {
 	kotlinOptions {
 		freeCompilerArgs = listOf("-Xjsr305=strict")
 		jvmTarget = "11"
+	}
+}
+
+tasks.getByName<Jar>("jar"){
+	enabled=false
+	manifest{
+		attributes["Main-Class"]="edu.eam.ingesoft.onlineStore2.Application"
 	}
 }
 
