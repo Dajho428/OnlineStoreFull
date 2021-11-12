@@ -30,6 +30,7 @@ class StoreService {
     fun updateStore(idStore: Int, store: Store) {
         val storeAux = storeRepository.find(idStore) ?: throw BusinessException("This store doesn't exist")
         store.id = idStore
+        store.city=storeAux.city
         storeRepository.update(store)
     }
 
